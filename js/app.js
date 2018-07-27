@@ -6,7 +6,6 @@ var Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y + 55;
     this.speed = speed;
-    // y position
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -48,35 +47,41 @@ Enemy.prototype.render = function() {
                    updates x by 101 (movement to the side) based on block width from engine.js
                    updates y by 83 (movement up or down) based on block height from engine.js
 
-*/
+**/
+
+/***CHARACTER***/
 class Character {
     constructor() {
-        this.sprite = "images/char-boy.png";
+        this.sprite = "images/char-horn-girl.png";
         this.moveX = 101
         this.moveY = 83;
         this.startX = this.moveX * 2;
         this.startY = (this.moveY * 4) + 55; //character was moved 20px higher to center the position
         this.x = this.startX;
         this.y = this.startY;
-        this.win = false;
+        this.end = false;
     }
 // Methods
     update(){
       for(let enemy of allEnemies){
         //Axis-Aligned Bounding Box
         //https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+        //Modal message changes depending on win or loss
       const characterBox = {x: this.x, y: this.y, width: 50, height: 50};
       const enemyBox = {x: enemy.x, y: enemy.y, width: 70, height: 45};
         if (characterBox.x < enemyBox.x + enemyBox.width && characterBox.x + characterBox.width > enemyBox.x &&
           characterBox.y < enemyBox.y + enemyBox.height && characterBox.height + characterBox.y > enemyBox.y) {
-            this.lose();
+            //this.lose();     commented out for future when lives are added to Game
+            this.showModal();
+            document.getElementById("heading").innerHTML = "Game Over!";
           }
       }
       if(this.y === -28) {
-          this.win();
+          this.showModal();
+          document.getElementById("heading").innerHTML = "Great Run!";
       }
     }
-        //check if player reached the end (checkWin)
+
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
@@ -106,39 +111,47 @@ class Character {
         }
     }
 
+/***
+Below function is commented out for the future if lives are added to the Game
     lose() {
       this.y = this.startY;
       this.x = this.startX;
+      gameModal.style.display = "block";
+      document.getElementById("heading").innerHTML = "Game Over!";
+      this.end = true;
     }
-
-    win() {
+***/
+//Resets character, displays modal, stops animation
+    showModal() {
+      this.end = true;
       this.y = this.startY;
       this.x = this.startX;
-      this.win = true;
+      gameModal.style.display = "block";
     }
 }
 
 
-
+/***PLAYER AND ENEMIES***/
 
 // Place the player object in a variable called player and initiate the object
+// Place enemy object in variable enemy, initiate object, add as many enemies as wanted
+// Some enemies commented out, may be added in in future versions
+
 const player = new Character();
 const enemy1 = new Enemy(-101, 0, 250);
 //const enemy2 = new Enemy((-101*2), 0, 250);
 const enemy3 = new Enemy((-101*4.5), 83, 280);
 const enemy4 = new Enemy((-101*0.5), 83, 280);
 //const enemy5 = new Enemy((-101*3), 166, 200);
-//const enemy6 = new Enemy(-101, 166, 200);
-
-
+const enemy6 = new Enemy(-101, 166, 200);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+
 const allEnemies = [];
-    allEnemies.push(enemy1, enemy3, enemy4);
-  // for each enemy, create and push into above array
+    allEnemies.push(enemy1, enemy3, enemy4, enemy6);
 
-
+/***CHARACTER MOVEMENT***/
 
 // This listens for designated key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -151,4 +164,22 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
+});
+
+/***MODAL***/
+
+//variables are defined
+const gameModal = document.querySelector(".gameModal");
+let modalClose = document.querySelector(".exit-button");
+let reset = document.getElementsByClassName("restart")[0];
+
+//clicking the exit button simply closes the modal, animation remains stopped
+modalClose.onclick = function() {
+  gameModal.style.display = "none";
+}
+
+//clicking the restart button restarts the game
+reset.addEventListener("click",function(){
+  gameModal.style.display = "none";
+  location.reload();
 });
