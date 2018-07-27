@@ -22,9 +22,10 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
         id;
 
+    //const winModal = document.querySelector(".winModal");
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -56,7 +57,7 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        if (character.win === true) {
+        if (player.end === true) {
           win.cancelAnimationFrame(id);
         } else {
           id = win.requestAnimationFrame(main);
@@ -178,7 +179,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-horn-girl.png'
     ]);
     Resources.onReady(init);
 
