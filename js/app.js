@@ -73,12 +73,12 @@ class Character {
           characterBox.y < enemyBox.y + enemyBox.height && characterBox.height + characterBox.y > enemyBox.y) {
             //this.lose();     commented out for future when lives are added to Game
             this.showModal();
-            document.getElementById("heading").innerHTML = "Game Over!";
+            document.getElementById("heading").innerHTML = "GAME OVER!";
           }
       }
       if(this.y === -28) {
           this.showModal();
-          document.getElementById("heading").innerHTML = "Great Run!";
+          document.getElementById("heading").innerHTML = "GREAT RUN!";
       }
     }
 
