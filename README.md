@@ -9,7 +9,7 @@ Clone or Download the repository to your local computer. Open the *index.html* f
 
 The game begins on load of the page.
 
-The goal is to make it across the pavement to the water. The player should use the arrow keys to navigate the character across. 
+The goal is to make it across the pavement to the water. The player should use the UP DOWN RIGHT LEFT arrow keys to navigate the character across. 
 
 Avoiding the bugs as the player makes it across is crucial. If the character collides with a bug, a GAME OVER! modal will display. The player can then click the repeat symbol to reset the game and try again, or they can select the X in the right hand corner to exit the modal back to the original screen. 
 
