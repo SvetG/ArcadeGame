@@ -20,6 +20,7 @@ When either modal displays, the animation ceases in the background. Clicking the
 
 
 ## Starter Code
+
 JS: Main code included guiding comments and the handleInput() method along with the basic outlining functions such as update and render
 
 https://github.com/udacity/fend-project-memory-game/blob/master/js/app.js
@@ -37,6 +38,7 @@ CSS:
 https://github.com/udacity/frontend-nanodegree-arcade-game/blob/master/css/style.css
 
 ## Resources
+
 Main sources used for code development and understanding:
 JavaScript & JQuery (Interactive front-end web development) by Jon Duckett<br>
 HTML & CSS (Design and build websites) by Jon Duckett
@@ -52,4 +54,7 @@ Modal code adapted from: https://www.w3schools.com/howto/howto_css_modals.asp<br
 
 Study of other student's posted finished and unfinished code of the Arcade Game project was used. This code was studied and read to gain understanding. NEVER COPIED.
 
+## Dependencies
+
+Web browser with support for Javascript ES6
 
