@@ -5,9 +5,11 @@ This game is based on the classic arcade game Frogger and is created as a projec
 
 ## Instructions
 
+Clone or Download the repository to your local computer. Open the *index.html* file in your favorite browser. Enjoy! 
+
 The game begins on load of the page.
 
-The goal is to make it across the pavement to the water. The player should use the arrow keys ![alt](https://www.clippingpathspecialist.com/wp-content/uploads/2014/08/Arrow-keys.jpg) to navigate the character across. 
+The goal is to make it across the pavement to the water. The player should use the arrow keys to navigate the character across. 
 
 Avoiding the bugs as the player makes it across is crucial. If the character collides with a bug, a GAME OVER! modal will display. The player can then click the repeat symbol to reset the game and try again, or they can select the X in the right hand corner to exit the modal back to the original screen. 
 
@@ -34,7 +36,7 @@ https://github.com/udacity/frontend-nanodegree-arcade-game/blob/master/index.htm
 CSS:
 https://github.com/udacity/frontend-nanodegree-arcade-game/blob/master/css/style.css
 
-## Dependencies
+## Resources
 Main sources used for code development and understanding:
 JavaScript & JQuery (Interactive front-end web development) by Jon Duckett<br>
 HTML & CSS (Design and build websites) by Jon Duckett
